@@ -1,0 +1,38 @@
+Appendix
+
+In this section, all the assumptions and logic for the calculations in the final
+few figures are explained. Clearly not all assumptions are 100% accurate, but the goal
+of this project is to provide an idea for the scope of the problem. While not
+exact, these assumptions give us the ability to estimate certain statistics.
+
+To calculate the number of people are addicted to opioids in each state, we did the following steps.
+First, we took the ratio: number of people with addiction nationally to number
+of people who died from opioids nationally would be the same for states. The value of
+this number is 28.5. We assumed this ratio to be constant across
+Using this assumption, we calculated the number of people
+addicted to opioids in each state by doing: 28.5 * number of people who died from
+opioids in that state for 2017.
+
+To calculate the maximum number of people doctors can prescribe Buprenorphine per state,
+we took the following steps. Using the Samhsa website, https://www.samhsa.gov/medication-assisted-treatment/physician-program-data/certified-physicians,
+we wrote a script that summed up the total number of doctors certified to treat 30 and 100 patients. Call
+lower_amount = # doctors certified to treat 30 patients, upper_amount = # doctors certified to treat 100 patients.
+Then we assumed the following:
+average number of patients a certified doctor can treat = (100 * upper_amount + 30*(lower_amount-upper_amount))/(lower_amount+upper_amount)
+
+Call this ratio avg_numpatients. Using the samhsa map locator for doctors, we found
+the number of doctors in each state legally able to prescribe Buprenorphine. However,
+not all doctors that can prescribe Buprenorphine are in the map locator. Given only
+19K doctors are legally able to prescribe Buprenorphine according to the map,
+while in reality 33K doctors exist with the ability to prescribe Buprenorphine,
+all values for the number of doctors legally able to prescribe Buprenorphine in each
+state were multiplied by 33/19. Given the assumptions, this series of calculations would produce
+the estimate of the number of doctors that can prescribe Buprenorphine for each
+state for later calculations.
+
+Given these assumptions, to calculate the maximum number of people doctors can prescribe
+Buprenorphine per state, avg_numpatients was multiplied to the estimated number of doctors that can
+prescribe Buprenorphine in each state.
+
+These assumptions and calculations formed the basis for all the figures and
+graphs seen in this visualization. 
